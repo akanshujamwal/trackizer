@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extension.dart';
-import 'package:trackizer/view/home/welcome_view.dart';
+import 'package:trackizer/view/login/welcome_view.dart';
 
 void main() {
   runApp(const MyApp());

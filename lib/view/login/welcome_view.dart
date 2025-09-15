@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:trackizer/common/color_extension.dart';
 import 'package:trackizer/common_widgets/primary_button.dart';
 import 'package:trackizer/common_widgets/secondary_button.dart';
+import 'package:trackizer/view/login/social_login.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -23,6 +24,7 @@ class _WelcomeViewState extends State<WelcomeView> {
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
     return Scaffold(
+     
       body: Center(
         child: Stack(
           alignment: Alignment.topCenter,
@@ -59,7 +61,12 @@ class _WelcomeViewState extends State<WelcomeView> {
                     PrimaryButton(
                       title: "Get Started",
                       onPressed: () {
-                        print("Get Started pressed");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SocialLogin(),
+                          ),
+                        );
                       },
                     ),
                     SizedBox(height: 15),
