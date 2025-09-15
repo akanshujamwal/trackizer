@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extension.dart';
+import 'package:trackizer/view/home/welcome_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: false,
       ),
-      home: Container(),
+      home: WelcomeView(),
     );
   }
 }
