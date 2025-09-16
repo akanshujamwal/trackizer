@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extension.dart';
-import 'package:trackizer/common_widgets/primary_button.dart';
 import 'package:trackizer/common_widgets/secondary_button.dart';
+import 'package:trackizer/view/login/sign_up_view.dart';
 
-class SocialLogin extends StatefulWidget {
-  const SocialLogin({super.key});
+class SocialLoginView extends StatefulWidget {
+  const SocialLoginView({super.key});
 
   @override
-  State<SocialLogin> createState() => _SocialLoginState();
+  State<SocialLoginView> createState() => _SocialLoginViewState();
 }
 
-class _SocialLoginState extends State<SocialLogin> {
+class _SocialLoginViewState extends State<SocialLoginView> {
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -154,7 +154,15 @@ class _SocialLoginState extends State<SocialLogin> {
                 style: TextStyle(fontSize: 14, color: TColor.white),
               ),
               SizedBox(height: 25),
-              SecondaryButton(title: "Sign up with Email", onPressed: () {}),
+              SecondaryButton(
+                title: "Sign up with Email",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignupView()),
+                  );
+                },
+              ),
               SizedBox(height: 20),
 
               Text(

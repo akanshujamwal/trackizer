@@ -28,7 +28,7 @@ class PrimaryButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              color: TColor.secondary.withOpacity(0.5),
+              color: TColor.secondary.withOpacity(0.25),
               offset: Offset(0, 4),
               blurRadius: 10,
             ),
