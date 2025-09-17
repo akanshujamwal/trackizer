@@ -11,7 +11,7 @@ class MainTabView extends StatefulWidget {
 
 class _MainTabViewState extends State<MainTabView> {
   int selecTab = 0;
-  PageStorageBucket bucket = PageStorageBucket();
+  PageStorageBucket pageStorageBucket = PageStorageBucket();
   Widget currentTabView = HomeView();
   @override
   Widget build(BuildContext context) {
@@ -19,6 +19,7 @@ class _MainTabViewState extends State<MainTabView> {
       backgroundColor: TColor.gray,
       body: Stack(
         children: [
+          PageStorage(bucket: pageStorageBucket, child: currentTabView),
           SafeArea(
             child: Column(
               children: [
@@ -38,38 +39,100 @@ class _MainTabViewState extends State<MainTabView> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  currentTabView = HomeView();
+                                  selecTab = 0;
+                                });
+                              },
                               icon: Image.asset(
                                 "assets/img/home.png",
                                 height: 20,
                                 width: 20,
+                                color: selecTab == 0
+                                    ? TColor.white
+                                    : TColor.gray40,
                               ),
                             ),
 
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  currentTabView = Container(
+                                    child: Center(
+                                      child: Text(
+                                        "Budget",
+                                        style: TextStyle(
+                                          fontSize: 40,
+                                          color: TColor.white,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                  selecTab = 1;
+                                });
+                              },
                               icon: Image.asset(
                                 "assets/img/budgets.png",
                                 height: 20,
                                 width: 20,
+                                color: selecTab == 1
+                                    ? TColor.white
+                                    : TColor.gray40,
                               ),
                             ),
                             SizedBox(width: 50, height: 50),
                             SizedBox(width: 50),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  currentTabView = Container(
+                                    child: Center(
+                                      child: Text(
+                                        "Calendar",
+                                        style: TextStyle(
+                                          fontSize: 40,
+                                          color: TColor.white,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                  selecTab = 2;
+                                });
+                              },
                               icon: Image.asset(
                                 "assets/img/calendar.png",
                                 height: 20,
                                 width: 20,
+                                color: selecTab == 2
+                                    ? TColor.white
+                                    : TColor.gray40,
                               ),
                             ),
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  currentTabView = Container(
+                                    child: Center(
+                                      child: Text(
+                                        "Credit Cards",
+                                        style: TextStyle(
+                                          fontSize: 40,
+                                          color: TColor.white,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                  selecTab = 3;
+                                });
+                              },
                               icon: Image.asset(
                                 "assets/img/creditcards.png",
                                 height: 20,
                                 width: 20,
+                                color: selecTab == 3
+                                    ? TColor.white
+                                    : TColor.gray40,
                               ),
                             ),
                           ],
