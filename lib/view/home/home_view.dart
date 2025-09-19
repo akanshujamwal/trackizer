@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trackizer/common/color_extension.dart';
 import 'package:trackizer/common_widgets/segment_button.dart';
+import 'package:trackizer/common_widgets/status_button.dart';
 import 'package:trackizer/common_widgets/subscription_home_row.dart';
 import 'package:trackizer/common_widgets/upcoming_bill_row.dart';
 
@@ -47,12 +48,57 @@ class _HomeViewState extends State<HomeView> {
           children: [
             Container(
               height: media.width * 1.1,
+
               decoration: BoxDecoration(
                 color: TColor.gray70.withOpacity(0.5),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(25),
                   bottomRight: Radius.circular(25),
                 ),
+              ),
+              child: Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  Image.asset("assets/img/home_bg.png"),
+                  Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Column(
+                      children: [
+                        Spacer(),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: StatusButton(
+                                title: "Active Status",
+                                value: "4",
+                                onPressed: () {},
+                                statusColor: TColor.secondary,
+                              ),
+                            ),
+                            SizedBox(width: 8),
+                            Expanded(
+                              child: StatusButton(
+                                title: "Highest Subscription",
+                                value: "\$ 2,296",
+                                onPressed: () {},
+                                statusColor: TColor.primary10,
+                              ),
+                            ),
+                            SizedBox(width: 8),
+                            Expanded(
+                              child: StatusButton(
+                                title: "Lowest Subscription",
+                                value: "2",
+                                onPressed: () {},
+                                statusColor: TColor.secondaryG,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
@@ -90,17 +136,17 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
             ),
-            if(isSubscriptions)
-            ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: subArr.length,
-              itemBuilder: (context, index) {
-                var sObj = subArr[index] as Map? ?? {};
-                return SubscriptionHomeRow(sObj: sObj, onPressed: () {});
-              },
-            ),
+            if (isSubscriptions)
+              ListView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: subArr.length,
+                itemBuilder: (context, index) {
+                  var sObj = subArr[index] as Map? ?? {};
+                  return SubscriptionHomeRow(sObj: sObj, onPressed: () {});
+                },
+              ),
             if (!isSubscriptions)
               ListView.builder(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
