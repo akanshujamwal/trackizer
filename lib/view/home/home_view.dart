@@ -60,6 +60,59 @@ class _HomeViewState extends State<HomeView> {
                 alignment: AlignmentDirectional.center,
                 children: [
                   Image.asset("assets/img/home_bg.png"),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        "assets/img/app_logo.png",
+                        width: media.width * 0.28,
+                        fit: BoxFit.contain,
+                      ),
+                      SizedBox(height: 15),
+                      Text(
+                        "\$1,299.00",
+                        style: TextStyle(
+                          color: TColor.white,
+                          fontSize: 40,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      SizedBox(height: 15),
+                      Text(
+                        "This Month's Expense",
+                        style: TextStyle(
+                          color: TColor.gray40,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(height: 25),
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: TColor.border.withOpacity(0.15),
+                            ),
+                            color: TColor.gray60.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            "See your budget",
+                            style: TextStyle(
+                              color: TColor.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   Padding(
                     padding: EdgeInsets.all(20),
                     child: Column(
