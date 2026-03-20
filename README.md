@@ -1,4 +1,4 @@
-# 🚀 Trackizer
+# Trackizer
 
 ![Flutter](https://img.shields.io/badge/Flutter-Framework-blue?logo=flutter)
 ![Dart](https://img.shields.io/badge/Dart-Language-blue?logo=dart)
